@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Life - Clean Water for All</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-pattern {
+            background-color: #e6f7ff;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2399ccff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .water-drop {
+            animation: drip 3s ease-in-out infinite;
+        }
+        @keyframes drip {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(10px) scale(0.95); }
+            70% { transform: translateY(15px) scale(0.9); }
+            100% { transform: translateY(0) scale(1); }
+        }
+        .donation-option:hover {
+            transform: scale(1.03);
+            transition: all 0.2s ease;
+        }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple 2s linear infinite;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+    <div class="container mx-auto px-4 flex justify-between items-center" style="height: 4rem;">
+        <div>
+            <img src="./Every Life.png" style="height: 7rem; width: 10rem;" alt="" class="object-contain">
+        </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                <a href="#blog" class="text-gray-700 hover:text-blue-600 transition">Blog</a>
+                <a href="#donate" class="text-gray-700 hover:text-blue-600 transition">Donate</a>
+                <a href="#volunteer" class="text-gray-700 hover:text-blue-600 transition">Volunteer</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact Us</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+            <a href="#blog" class="block py-2 text-gray-700 hover:text-blue-600">Blog</a>
+            <a href="#donate" class="block py-2 text-gray-700 hover:text-blue-600">Donate</a>
+            <a href="#volunteer" class="block py-2 text-gray-700 hover:text-blue-600">Volunteer</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern pt-24 pb-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-6">Clean Water is a Right, Not a Privilege</h1>
+                <p class="text-lg text-gray-700 mb-8">We're bringing sustainable water solutions to Pakistan's most water-deprived regions, reviving agriculture and securing food chains.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#donate" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-center transition">Donate Now</a>
+                    <a href="#about" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg border border-blue-600 text-center transition">Learn More</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <!-- Realistic Water Drop SVG -->
+                    <svg class="w-64 h-64 md:w-80 md:h-80 water-drop" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Water drop body -->
+                        <defs>
+                            <linearGradient id="dropGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#5abaff" />
+                                <stop offset="100%" stop-color="#0066cc" />
+                            </linearGradient>
+                            <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                                <feOffset dx="2" dy="2" result="offsetblur" />
+                                <feComponentTransfer>
+                                    <feFuncA type="linear" slope="0.3" />
+                                </feComponentTransfer>
+                                <feMerge>
+                                    <feMergeNode />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Main drop shape -->
+                        <path d="M100,20 C140,60 180,100 180,160 C180,210 145,230 100,230 C55,230 20,210 20,160 C20,100 60,60 100,20 Z" 
+                              fill="url(#dropGradient)" 
+                              filter="url(#dropShadow)" />
+                        
+                        <!-- Highlight/reflection -->
+                        <path d="M80,50 C100,70 130,90 130,140 C130,170 115,190 90,190 C65,190 50,170 50,140 C50,90 60,70 80,50 Z" 
+                              fill="white" 
+                              opacity="0.25" />
+                        
+                        <!-- Small highlight at top -->
+                        <circle cx="100" cy="40" r="8" fill="white" opacity="0.4" />
+                    </svg>
+                    
+                    <!-- Ripple effect -->
+                    <div class="ripple" style="width: 20px; height: 20px; bottom: 20px; left: 50%; margin-left: -10px;"></div>
+                    
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <p class="text-white font-bold text-xl drop-shadow-lg">Every Drop Counts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-blue-50 p-8 rounded-lg text-center">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">Millions</div>
+                    <p class="text-gray-700">People in Sindh & Balochistan without clean water access</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-lg text-center">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">100+</div>
+                    <p class="text-gray-700">Water projects installed across water-deprived areas</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-lg text-center">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">1000s</div>
+                    <p class="text-gray-700">Farmers supported with sustainable water solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">About Every Life</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+                <p class="text-gray-700 mb-6">At Every Life, we believe access to clean water isn't a privilege—it's a basic human right. And yet, in the parched villages of Sindh and Balochistan, millions are still walking miles every day just to fetch a few litres of often contaminated water. That's not just a rural tragedy—it's a national emergency.</p>
+                
+                <p class="text-gray-700 mb-6">Water scarcity doesn't end at the village. It seeps into our fields, into our crops, and onto our plates. These regions are the backbone of Pakistan's agriculture—home to the very farms that grow the wheat, fruits, and vegetables we consume every day. Without water, harvests fail. When harvests fail, food prices spike. When food prices spike, it's not just farmers who suffer—everyone feels the pinch, from the sabzi mandi to your own kitchen shelf.</p>
+                
+                <p class="text-gray-700 mb-6">That's where Every Life steps in. We're an impact-driven NGO installing sustainable water solutions like tube wells and reverse osmosis (RO) plants across water-deprived areas. Our goal? To not only provide drinking water to communities in crisis, but also to help revive agriculture, secure food chains, and create economic resilience in the face of climate change.</p>
+                
+                <p class="text-gray-700 mb-6">We work with transparency, local insight, and a no-nonsense digital-first approach. No billboards. No fluff. Just clean water, flowing futures, and a network of supporters who know that every drop counts.</p>
+                
+                <p class="text-gray-700 mb-6">Because clean water doesn't just save lives—it grows crops, feeds families, and keeps our nation strong.</p>
+                
+                <p class="text-gray-700 font-semibold">And every life deserves that kind of power.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Our Work</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-blue-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-800 mb-2">Tube Wells</h3>
+                        <p class="text-gray-700">Installing deep tube wells to access groundwater in areas where surface water is scarce or contaminated.</p>
+                    </div>
+                </div>
+                <div class="bg-blue-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-800 mb-2">RO Plants</h3>
+                        <p class="text-gray-700">Setting up reverse osmosis plants to purify brackish water and make it safe for drinking and agriculture.</p>
+                    </div>
+                </div>
+                <div class="bg-blue-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-800 mb-2">Community Training</h3>
+                        <p class="text-gray-700">Educating local communities on water conservation, sustainable farming, and maintenance of water systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Our Blog</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+                <h3 class="text-2xl font-bold text-blue-800 mb-4">Water Scarcity is Causing Your Food to be Expensive</h3>
+                <p class="text-gray-700 mb-6">Water scarcity is quietly draining more than just rivers and wells—it's draining your wallet too, every time you walk into a sabzi mandi or supermarket. While everyone's yelling about inflation, there's a less obvious, more dangerous culprit flowing under the radar: the lack of water in Pakistan's agricultural heartlands. In Sindh and Balochistan, farmers who once fed the nation are now watching their fields crumble into dust because there simply isn't enough water to grow anything.</p>
+                
+                <p class="text-gray-700 mb-6">And this isn't just a case of "oh no, fewer tomatoes"—it's systemic. When tube wells run dry, when RO plants aren't installed, and when rainfall becomes erratic, entire harvests fail before seeds even sprout. Fewer crops mean tighter supply, and tighter supply means prices shoot up. That overpriced tomato, that tiny bunch of spinach, that sack of flour that suddenly costs more than your monthly WiFi? It all traces back to one root issue: water.</p>
+                
+                <p class="text-gray-700 mb-6">This is the part most people don't see—how the water crisis in rural Pakistan translates directly into economic stress for everyday consumers in cities. Farmers are forced to abandon their lands, supply chains break down, transport costs spike, and suddenly, feeding your family becomes a privilege rather than a right. But this isn't just about economics—it's about justice, sustainability, and survival. Because when water becomes scarce, it doesn't just kill crops; it kills potential, livelihoods, nutrition, and hope.</p>
+                
+                <p class="text-gray-700 mb-6">And let's be real: if we keep ignoring this, we're headed toward a food security nightmare where clean water and affordable food both become luxuries instead of basics. That's where Every Life steps in. We're not here for temporary fixes or performative charity. We're building real, sustainable solutions—installing tube wells, setting up RO plants, and bringing clean water back to the places that need it most.</p>
+                
+                <p class="text-gray-700 mb-6">Our mission isn't just to hydrate, it's to cultivate—to give farmers the water they need to grow again, and to ensure that food stays on plates from Gwadar to Gujranwala. Because whether you're a mother in Khuzdar, a student in Karachi, or a grocer in Larkana, this affects you. Water is the invisible foundation of food security, economic resilience, and public health. And when that foundation crumbles, we all feel the aftershocks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Make a Difference</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-700 max-w-2xl mx-auto">Your contribution helps us install more water solutions in water-deprived areas, supporting communities and agriculture.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="donation-option bg-blue-50 rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-blue-800 mb-2">RS 1,000</h3>
+                        <p class="text-gray-700 mb-6">Provides clean drinking water for a family for one month</p>
+                        <button class="donate-btn bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition" data-amount="1000">Donate Now</button>
+                    </div>
+                </div>
+                <div class="donation-option bg-blue-100 rounded-lg shadow-md overflow-hidden transition duration-300 transform scale-105">
+                    <div class="p-6 text-center">
+                        <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                        <h3 class="text-2xl font-bold text-blue-800 mb-2">RS 5,000</h3>
+                        <p class="text-gray-700 mb-6">Helps maintain an RO plant serving a small community</p>
+                        <button class="donate-btn bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition" data-amount="5000">Donate Now</button>
+                    </div>
+                </div>
+                <div class="donation-option bg-blue-50 rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-blue-800 mb-2">RS 50,000</h3>
+                        <p class="text-gray-700 mb-6">Contributes to a new tube well installation in a village</p>
+                        <button class="donate-btn bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition" data-amount="50000">Donate Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <button id="custom-amount-btn" class="text-blue-600 hover:text-blue-800 font-medium underline">Enter a custom amount</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Volunteer With Us</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-700 max-w-2xl mx-auto">Join our team of dedicated volunteers and help us bring clean water to communities in need.</p>
+            </div>
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+                <form id="volunteer-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="first-name" class="block text-gray-700 font-medium mb-2">First Name</label>
+                            <input type="text" id="first-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name</label>
+                            <input type="text" id="last-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="skills" class="block text-gray-700 font-medium mb-2">Skills & Expertise</label>
+                        <select id="skills" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="" disabled selected>Select your area of expertise</option>
+                            <option value="engineering">Water Engineering</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="community">Community Outreach</option>
+                            <option value="fundraising">Fundraising</option>
+                            <option value="digital">Digital Marketing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Why do you want to volunteer?</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Contact Us</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-700 max-w-2xl mx-auto">Have questions or want to learn more about our work? Reach out to us.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Contact Form -->
+                <div class="bg-blue-50 rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" id="contact-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="contact-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="contact-subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="contact-subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="contact-message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="bg-blue-50 rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-6">Get in Touch</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-blue-800 mb-1">Address</h4>
+                                <p class="text-gray-700">123 Water Street, Karachi, Pakistan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-blue-800 mb-1">Phone</h4>
+                                <p class="text-gray-700">+92 300 1234567</p>
+                                <p class="text-gray-700">+92 21 1234567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-blue-800 mb-1">Email</h4>
+                                <p class="text-gray-700">info@everylife.org</p>
+                                <p class="text-gray-700">support@everylife.org</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-blue-800 mb-1">Working Hours</h4>
+                                <p class="text-gray-700">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                                <p class="text-gray-700">Saturday: 10:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <div class="mt-8">
+                        <h4 class="font-medium text-blue-800 mb-3">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <!-- Facebook link -->
+                            <a href="https://www.facebook.com/share/1AHc1JNTk8/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                                </svg>
+                            </a>
+                            <!-- Instagram link updated with the new URL -->
+                            <a href="https://www.instagram.com/everylifepk/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="mt-12 max-w-5xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="h-96 bg-gray-200">
+                    <!-- Map placeholder - In a real implementation, this would be replaced with an actual map -->
+                    <div class="w-full h-full flex items-center justify-center bg-blue-50">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-blue-600 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <h3 class="text-xl font-semibold text-blue-800 mb-2">Our Location</h3>
+                            <p class="text-gray-700">123 Water Street, Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="mb-4">
+                        <span class="font-bold text-xl">Every Life</span>
+                    </div>
+                    <p class="text-blue-100 mb-4">Bringing clean water to Pakistan's most water-deprived regions.</p>
+                    <div class="flex space-x-4">
+                        <!-- Facebook link in footer -->
+                        <a href="https://www.facebook.com/share/1AHc1JNTk8/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                            </svg>
+                        </a>
+                        <!-- Instagram link in footer updated with the new URL -->
+                        <a href="https://www.instagram.com/everylifepk/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-blue-100 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-blue-100 hover:text-white transition">About Us</a></li>
+                        <li><a href="#blog" class="text-blue-100 hover:text-white transition">Blog</a></li>
+                        <li><a href="#donate" class="text-blue-100 hover:text-white transition">Donate</a></li>
+                        <li><a href="#volunteer" class="text-blue-100 hover:text-white transition">Volunteer</a></li>
+                        <li><a href="#contact" class="text-blue-100 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Our Work</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Tube Wells</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">RO Plants</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Community Training</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Impact Reports</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 mt-0.5 text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-blue-100">123 Water Street, Karachi, Pakistan</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 mt-0.5 text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                            <span class="text-blue-100">info@everylife.org</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 mt-0.5 text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                            </svg>
+                            <span class="text-blue-100">+92 300 1234567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2023 Every Life. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-blue-800">Complete Your Donation</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="donation-amount-display" class="text-center mb-6">
+                <p class="text-gray-700">You are donating</p>
+                <div class="text-3xl font-bold text-blue-600 mb-2">RS <span id="amount-value">5,000</span></div>
+                <p class="text-gray-600 text-sm">Thank you for your generosity!</p>
+            </div>
+            <div id="custom-amount-input" class="mb-6 hidden">
+                <label for="custom-amount" class="block text-gray-700 font-medium mb-2">Enter Amount (RS)</label>
+                <input type="number" id="custom-amount" min="100" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter amount">
+            </div>
+            <form id="payment-form" class="space-y-4">
+                <div>
+                    <label for="card-name" class="block text-gray-700 font-medium mb-2">Name on Card</label>
+                    <input type="text" id="card-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe" required>
+                </div>
+                <div>
+                    <label for="card-number" class="block text-gray-700 font-medium mb-2">Card Number</label>
+                    <input type="text" id="card-number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="card-expiry" class="block text-gray-700 font-medium mb-2">Expiry Date</label>
+                        <input type="text" id="card-expiry" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="MM/YY" required>
+                    </div>
+                    <div>
+                        <label for="card-cvc" class="block text-gray-700 font-medium mb-2">CVC</label>
+                        <input type="text" id="card-cvc" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="123" required>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition">Complete Donation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
+            <p class="text-gray-700 mb-6">Your donation has been processed successfully. We've sent a confirmation to your email.</p>
+            <button id="close-success" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Donation modal functionality
+        const donationModal = document.getElementById('donation-modal');
+        const donationBtns = document.querySelectorAll('.donate-btn');
+        const closeModalBtn = document.getElementById('close-modal');
+        const amountValue = document.getElementById('amount-value');
+        const customAmountBtn = document.getElementById('custom-amount-btn');
+        const customAmountInput = document.getElementById('custom-amount-input');
+        const customAmount = document.getElementById('custom-amount');
+        const donationAmountDisplay = document.getElementById('donation-amount-display');
+        const paymentForm = document.getElementById('payment-form');
+        const successModal = document.getElementById('success-modal');
+        const closeSuccessBtn = document.getElementById('close-success');
+
+        // Open donation modal with selected amount
+        donationBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const amount = btn.getAttribute('data-amount');
+                amountValue.textContent = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                customAmountInput.classList.add('hidden');
+                donationAmountDisplay.classList.remove('hidden');
+                donationModal.classList.remove('hidden');
+            });
+        });
+
+        // Custom amount button
+        customAmountBtn.addEventListener('click', () => {
+            customAmountInput.classList.remove('hidden');
+            donationAmountDisplay.classList.add('hidden');
+            donationModal.classList.remove('hidden');
+        });
+
+        // Update amount when custom amount changes
+        customAmount.addEventListener('input', () => {
+            if (customAmount.value) {
+                amountValue.textContent = parseInt(customAmount.value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            } else {
+                amountValue.textContent = "0";
+            }
+        });
+
+        // Close donation modal
+        closeModalBtn.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+        });
+
+        // Submit payment form
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            donationModal.classList.add('hidden');
+            successModal.classList.remove('hidden');
+        });
+
+        // Close success modal
+        closeSuccessBtn.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+        });
+
+        // Volunteer form submission
+        const volunteerForm = document.getElementById('volunteer-form');
+        
+        volunteerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            
+            // Show success message
+            alert(`Thank you, ${firstName} ${lastName}! Your volunteer application has been submitted. We'll contact you soon.`);
+            
+            // Reset form
+            volunteerForm.reset();
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('contact-name').value;
+            
+            // Show success message
+            alert(`Thank you, ${name}! Your message has been sent. We'll get back to you soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === donationModal) {
+                donationModal.classList.add('hidden');
+            }
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'945f5f79c6c09095',t:'MTc0ODI4NDUzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
